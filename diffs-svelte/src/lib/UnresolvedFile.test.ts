@@ -3,7 +3,7 @@ import { userEvent } from 'vitest/browser';
 import { describe, expect, test, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import UnresolvedFile from './UnresolvedFile.svelte';
-import { lines, queryShadow, trackResizeObservers, waitForRows } from './test-utils.js';
+import { lines, queryShadow, trackResizeObservers, waitForRows } from '../test/test-utils.js';
 
 const file: FileContents = {
   name: 'conflict.ts',

@@ -3,7 +3,7 @@ import { userEvent } from 'vitest/browser';
 import { describe, expect, test, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import CodeView from './CodeView.svelte';
-import { lines, queryShadow, trackResizeObservers, waitForRows } from './test-utils.js';
+import { lines, queryShadow, trackResizeObservers, waitForRows } from '../test/test-utils.js';
 
 const oldFile = { name: 'src/value.ts', contents: 'export const value = 1;\n' };
 const newFile = { name: 'src/value.ts', contents: 'export const value = 2;\n' };

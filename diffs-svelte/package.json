@@ -16,7 +16,7 @@
   "files": ["dist", "!dist/**/*.test.*"],
   "sideEffects": false,
   "scripts": {
-    "build": "svelte-package -i src/lib -o dist",
+    "build": "svelte-package -i src/lib -o dist && find dist -name '*.test.*' -prune -exec rm -rf {} +",
     "check": "svelte-check --tsconfig ./tsconfig.json --fail-on-warnings",
     "test": "vitest run",
     "test:watch": "vitest"

@@ -3,7 +3,7 @@ import { expect, test } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import FileDiff from './FileDiff.svelte';
 import { initHighlighter } from './highlighter.js';
-import { queryShadow, waitForRows } from './test-utils.js';
+import { queryShadow, waitForRows } from '../test/test-utils.js';
 
 // Unmocked: Chromium supports WebAssembly SIMD, so the real Highlights backend loads.
 test('initHighlighter() loads Highlights for real and components use it', async () => {

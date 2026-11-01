@@ -2,7 +2,7 @@ import { File as UpstreamFile, type LineAnnotation } from '@pierre/diffs';
 import { describe, expect, test, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import File from './File.svelte';
-import { lines, queryShadow, trackResizeObservers, waitForRows } from './test-utils.js';
+import { lines, queryShadow, trackResizeObservers, waitForRows } from '../test/test-utils.js';
 
 const file = { name: 'hello.ts', contents: 'const greeting = "hi";\nconsole.log(greeting);\n' };
 

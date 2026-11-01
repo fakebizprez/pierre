@@ -2,7 +2,7 @@ import { FileDiff as UpstreamFileDiff, parseDiffFromFile, type DiffLineAnnotatio
 import { describe, expect, test, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import FileDiff from './FileDiff.svelte';
-import { lines, trackResizeObservers, waitForRows } from './test-utils.js';
+import { lines, trackResizeObservers, waitForRows } from '../test/test-utils.js';
 
 const oldFile = { name: 'value.ts', contents: 'const a = 1;\nconst b = 2;\nconst c = 3;\n' };
 const newFile = { name: 'value.ts', contents: 'const a = 1;\nconst b = 20;\nconst c = 3;\n' };
