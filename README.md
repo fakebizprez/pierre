@@ -17,7 +17,7 @@ Both packages work and are tested in real Chromium. Nothing is published yet. SS
 bun install
 bun run test     # Vitest browser tests for both packages
 bun run check    # svelte-check, zero warnings
-bun run e2e      # builds the packages, then runs the demo's Playwright tests
+bun run e2e      # builds the packages and demo, then runs the demo's Playwright tests
 bun run verify   # all of the above
 cd demo && bun run dev   # demo app with /trees and /diffs pages
 ```

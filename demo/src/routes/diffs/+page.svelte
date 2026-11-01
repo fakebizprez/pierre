@@ -23,7 +23,9 @@
 
   onMount(() => {
     // Pick the backend once, in the browser, before any component renders.
-    initHighlighter({ themes: ['pierre-light', 'pierre-dark'] }).finally(() => (ready = true));
+    initHighlighter({ themes: ['pierre-light', 'pierre-dark'] })
+      .catch((error) => console.error('initHighlighter failed:', error))
+      .finally(() => (ready = true));
   });
 </script>
 

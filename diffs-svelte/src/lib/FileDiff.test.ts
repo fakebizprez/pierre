@@ -155,3 +155,21 @@ describe('FileDiff', () => {
     }
   });
 });
+
+test('FileDiff releases the instance when oninit throws', async () => {
+  const cleanUp = vi.spyOn(UpstreamFileDiff.prototype, 'cleanUp');
+  try {
+    expect(() =>
+      render(FileDiff<undefined>, {
+        oldFile,
+        newFile,
+        oninit: () => {
+          throw new Error('oninit failed');
+        },
+      }),
+    ).toThrow('oninit failed');
+    expect(cleanUp).toHaveBeenCalledTimes(1);
+  } finally {
+    cleanUp.mockRestore();
+  }
+});

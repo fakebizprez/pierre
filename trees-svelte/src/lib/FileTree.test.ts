@@ -282,3 +282,22 @@ test('style accepts themeToTreeStyles output and the CSS variables reach the hos
   await rerender({ style: { height: '300px', ...light } });
   expect(host().getPropertyValue('--trees-theme-sidebar-bg').trim()).toBe('#fafafa');
 });
+
+test('releases the tree when oninit throws', async () => {
+  const cleanUp = vi.spyOn(FileTreeModel.prototype, 'cleanUp');
+  const boom = new Error('oninit failed');
+  try {
+    await expect(async () =>
+      render(FileTree, {
+        paths: PATHS,
+        style: 'height: 300px',
+        oninit: () => {
+          throw boom;
+        },
+      }),
+    ).rejects.toThrow('oninit failed');
+    expect(cleanUp).toHaveBeenCalledTimes(1);
+  } finally {
+    cleanUp.mockRestore();
+  }
+});

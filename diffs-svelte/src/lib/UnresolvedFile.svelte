@@ -100,12 +100,18 @@
     if (selectedLines !== undefined) created.setSelectedLines(selectedLines);
     current = created;
     instance = created;
-    oninit?.(created);
-    return () => {
+    const release = () => {
       created.cleanUp();
       current = undefined;
       if (instance === created) instance = undefined;
     };
+    try {
+      oninit?.(created);
+    } catch (error) {
+      release();
+      throw error;
+    }
+    return release;
   });
 
   $effect(() => {

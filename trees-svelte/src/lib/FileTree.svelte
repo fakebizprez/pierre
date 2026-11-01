@@ -39,12 +39,18 @@
     instance = new FileTree(initial);
     instance.render({ containerWrapper: container });
     tree = instance;
-    oninit?.(instance);
-    return () => {
+    const release = () => {
       instance?.cleanUp();
       instance = undefined;
       tree = undefined;
     };
+    try {
+      oninit?.(instance);
+    } catch (error) {
+      release();
+      throw error;
+    }
+    return release;
   });
 
   $effect(() => {
