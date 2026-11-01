@@ -1,2 +1,10 @@
 .DS_Store*
 .env*
+node_modules/
+dist/
+.svelte-kit/
+build/
+test-results/
+playwright-report/
+__screenshots__/
+.vitest-attachments/

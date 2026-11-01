@@ -1,0 +1,17 @@
+{
+  "name": "pierre-svelte",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "trees-svelte",
+    "diffs-svelte",
+    "demo"
+  ],
+  "scripts": {
+    "build": "bun run --filter 'trees-svelte' build && bun run --filter 'diffs-svelte' build",
+    "check": "bun run --filter '*' check",
+    "test": "bun run --filter 'trees-svelte' test && bun run --filter 'diffs-svelte' test",
+    "e2e": "cd demo && bunx playwright test",
+    "verify": "bun run test && bun run build && bun run check && cd demo && bunx playwright test"
+  }
+}
